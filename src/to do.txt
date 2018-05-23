@@ -1,0 +1,16 @@
+// To do:
+
+1. Pass questions, answers and correct answers in the Result Component
+2. Render Player score, question and answers
+3. Provide button to restart game 
+4. Provide button to exit game 
+
+
+// Add these features if fits on deadline
+
+1. Add CSS
+2. Decode special character for output
+3. Add color code example : blue for correct and red for wrong
+4. Get Player name to render in result
+5. Render Question index out of 10 in Question Component GUI
+6. Add a share on facebook on Results Component
