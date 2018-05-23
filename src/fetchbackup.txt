@@ -1,0 +1,15 @@
+        let category = this.props.navigation.state.params;
+    fetch('http://172.16.0.105:80/getquestion/index.php', {
+     method: 'POST',
+     headers: {
+       'Accept': 'text/plain',
+       'Content-Type': 'application/json',
+     },
+     body: JSON.stringify(this.props.navigation.state.params),
+   })
+   .then((res) => res.text())
+   .then((response) => {
+       console.log("Success:", response);
+    })
+   .catch((error) => console.log("an error occurred", error));
+   

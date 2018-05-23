@@ -1,0 +1,16 @@
+    // let category = this.props.navigation.state.params.category;
+    // let  baseUrl =  'https://opentdb.com/api.php?amount=10&category='+category+'&type=multiple&token=';
+    // if(category === 0 ){
+    //   baseUrl = 'https://opentdb.com/api.php?amount=10&type=multiple&token=';
+    // }
+    // let token = 'fb614d9d9af42ce8e3908b490323a8311a0ca0c5355aa4e780b69bcbf45ba896';
+    // console.log(typeof(category));
+    // fetch(baseUrl + token)
+    //   .then((response) => response.json())
+    //   .then((responseJSON) => {
+    //     this.setState({
+    //       data : responseJSON.results
+    //     });
+    //     this.getData();
+    //   })
+    //   .catch((error) => console.log('an error occured. ' + error));

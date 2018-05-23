@@ -1,0 +1,15 @@
+  render() {
+    return (
+      <View>
+          <Text> {this.state.question}</Text>
+            {
+              this.state.answers.map((answer, i ) => {
+               return (<Text key={i}> {this.state.answers[i]} </Text>);
+              })
+            }
+          <Button style={{'display': this.state.showNext}} title="Next" onPress={() => this.goToNextQuestion() }/>
+          <Text>{'\n'}</Text>
+          <Button style={{'display': 'none'}}title="Submit" onPress={() => this.goToResult() }/>
+      </View>
+    );
+  }

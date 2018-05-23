@@ -1,0 +1,17 @@
+    fetch('http://192.168.0.6/quizapp/getquestion.php', {
+      mode: 'cors', // 'cors' by default
+     method: 'POST',
+     headers: new Headers({
+       'Accept': 'application/json', // Response
+       'Content-Type': 'text/plain' // Request
+     }),
+     body: JSON.stringify(category),
+   })
+   .then((response) =>
+     console.log("it works!  --> "+response.json()))
+   .then((responseJson) => {
+      console.log("Success:", responseJson);
+    })
+   .catch((error) => console.log("an error occurred", error));
+
+    }

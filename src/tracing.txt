@@ -1,0 +1,2 @@
+Not: set index into local variable instead of state
+current : index = this.state.index; // 0 int value

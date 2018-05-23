@@ -1,0 +1,2 @@
+https://opentdb.com/api_token.php?command=reset&token=YOURTOKENHERE
+token = 8af4bad406a446c536b8895545fa815799414923dd126195f43254f208f1cb47

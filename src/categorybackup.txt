@@ -1,0 +1,9 @@
+        <Button title="Sports" onPress={() => this.goToQuestions("Sports") }/>
+        <Text>{'\n'}</Text>
+        <Button title="TV Shows" onPress={() => this.goToQuestions("TV Shows") }/>
+        <Text>{'\n'}</Text>
+        <Button title="History" onPress={() => this.goToQuestions("History") }/>
+        <Text>{'\n'}</Text>
+        <Button title="Science" onPress={() => this.goToQuestions("Science") }/>
+        <Text>{'\n'}</Text>
+        <Button title="Random" onPress={() => this.goToQuestions("Random") }/>
