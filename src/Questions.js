@@ -64,7 +64,7 @@ class Questions extends Component{
     goToNextQuestion(answer) {
       console.log("the answer is: "+ answer);
       if(answer === this.state.is_correct){ 
-        console.log("correct");
+        console.log("That is correct");
         let newScore = this.state.score + 1;
         console.log("  You score:  "+newScore +" out of "+this.state.data.length);
         this.setState({ score : newScore }); // Update score
