@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button } from 'react-native';
+import { StyleSheet, Text, View, Button, ActivityIndicator } from 'react-native';
 class Questions extends Component{
     constructor(props){
       super(props);
@@ -95,7 +95,8 @@ class Questions extends Component{
   }
   render() {
     return (
-      <View>
+      this.state.index === 0 ? (<View style = {[styles.container, styles.horizontal]}><ActivityIndicator  size="large" color="#0000ff"/></View>) : (
+        <View style = {[styles.container]}>
           <Text> Question { this.state.index } out of 10</Text>
           <Text> { decodeURIComponent(this.state.question) }</Text>
             {
@@ -109,7 +110,21 @@ class Questions extends Component{
               })
             }
       </View>
+      )
+      
     );
   }
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center'
+  },
+  horizontal: {
+    flexDirection: 'row',
+    justifyContent: 'space-around',
+    padding: 10
+  }
+})
 export default Questions;
