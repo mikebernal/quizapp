@@ -79,6 +79,7 @@ class Questions extends Component{
       //   });
     
     goToNextQuestion(answer) {
+      console.log("the answer is: "+ answer);
       if(answer === this.state.is_correct){ 
         console.log("NEW CONSOLE LOG");
         let newScore = this.state.score + 1;
