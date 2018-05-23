@@ -3,8 +3,8 @@ import { Text, View, Button } from 'react-native';
 class Result extends Component{
     constructor(props){
         super(props);
-        console.log("THIS IS THE RESULTS PAGE");
-        console.log("NAvigation state params :"+this.props.navigation.state.params.results.answer);
+        console.log("THIS IS THE RESULT COMPONENT");
+        console.log("Navigation state params :"+this.props.navigation.state.params.results.answer);
         this.state = {
             data : this.props.navigation.state.params.data,
             score : this.props.navigation.state.params.score

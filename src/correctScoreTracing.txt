@@ -1,0 +1,26 @@
+if(correct){    ** 12 lines **
+  newScore = state.score;
+  setState(score : newScore;
+-->this.getData();
+    data
+    index
+    is_correct
+    answers[]
+    setState({ question, answers, is_correct});
+    index+=1;
+    setState({index : index});
+    if(this.state.index === 10)
+   -->this.goToResult( {results} );
+}
+else{       ** 10 lines **
+  -->this.getData();
+       data
+       index
+       is_correct
+       answers[]
+       setState({question, answers,is_correct});
+       index+=1;
+       setState({index: index});
+       if(this.state.index === 10)
+      -->this.goToResult({results});
+}

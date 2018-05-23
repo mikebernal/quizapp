@@ -18,7 +18,6 @@ class Questions extends Component{
       this.goToResult = this.goToResult.bind(this);
       this.shuffleArray = this.shuffleArray.bind(this);
       this.goToNextQuestion = this.goToNextQuestion.bind(this);
-      // this.incrementIndex = this.incrementIndex.bind(this);
     }
     componentDidMount(){
       this.getApi();
@@ -58,45 +57,29 @@ class Questions extends Component{
         answers : answers,
         is_correct : is_correct 
       });
-      // this.setState({
-      //   userInput : [...this.state.userInput,
-      //   {
-      //     question : this.state.question,
-      //     answer : this.state.answers,
-      //     correct : this.state.is_correct
-      //   }
-      // ]});
-      console.log("Index is  "+this.state.index+"\nNumber of Questions : "+this.state.data.length);
-      console.log("***For debugging purposes only***\nQuestion "+(index+1)+" out of "+this.state.data.length+"\nThe correct answer for the following question :\n" +this.state.question + " \nAnswer : " +is_correct);
-      // this.incrementIndex();
-
+      console.log("Question "+(index+1)+" out of "+this.state.data.length+"\n" +this.state.question + " \nAnswer : " +is_correct);
       index += 1;
       this.setState({index : index}) // index : index
     }
-      // incrementIndex() {
-      //   this.setState((prevState) => {
-      //     return {index: prevState.index + 1}
-      //   });
-    
     goToNextQuestion(answer) {
       console.log("the answer is: "+ answer);
       if(answer === this.state.is_correct){ 
-        console.log("NEW CONSOLE LOG");
+        console.log("correct");
         let newScore = this.state.score + 1;
         console.log("  You score:  "+newScore +" out of "+this.state.data.length);
         this.setState({ score : newScore }); // Update score
       }
-      this.getData(); // Line 44
       // Check if index = 10
       console.log("this.state.index = " + this.state.index + "\nthis.state.data.length = "+this.state.data.length);
-      if(this.state.index === 9 ){
-        console.log("----------------\nChecking if "+this.state.index+" < "+this.state.data.length);
-        console.log('FINISH\nYour scored is '+ this.state.score +' out of '+ this.state.data.length);
+      if(this.state.index === 10 ){
+        console.log("FINISH\nChecking if "+this.state.index+" < "+this.state.data.length);
+        console.log('Your scored is '+ this.state.score +' out of '+ this.state.data.length);
         this.goToResult( {results : { 
           data : this.state.data,
           score : this.state.score
         }});  
       }
+      this.getData(); 
     }
     goToResult({results}){  
       this.props.navigation.navigate('Result', {results});
