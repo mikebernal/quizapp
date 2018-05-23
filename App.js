@@ -4,7 +4,7 @@ import {
   Text,
   View
 } from 'react-native';
-import { createStackNavigator, createSwitchNavigator } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation';
 import Home from './src/Home';
 import Categories from './src/Categories';
 import Questions from './src/Questions';
