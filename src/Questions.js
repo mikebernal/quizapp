@@ -96,6 +96,7 @@ class Questions extends Component{
   render() {
     return (
       <View>
+          <Text> Question { this.state.index } out of 10</Text>
           <Text> { decodeURIComponent(this.state.question) }</Text>
             {
               this.state.answers.map( (answer, i ) => {
