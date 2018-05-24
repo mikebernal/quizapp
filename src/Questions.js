@@ -20,6 +20,9 @@ class Questions extends Component{
       this.shuffleArray = this.shuffleArray.bind(this);
       this.goToNextQuestion = this.goToNextQuestion.bind(this);
     }
+    static navigationOptions = {
+      title: 'Question',
+    };
     componentDidMount(){
       this.getApi();
     }

@@ -19,7 +19,16 @@ const MainNavigation = createStackNavigator({
   Result : { screen: Result},
   Review : { screen: Review}
 }, {
-  initialRouteName : 'Home'
+  initialRouteName : 'Home',
+  navigationOptions: {
+    headerStyle: {
+      backgroundColor: '#000000',
+    },
+    headerTintColor: '#fff',
+    headerTitleStyle: {
+      fontWeight: 'bold',
+    },
+  },
 });
 
 class App extends Component{

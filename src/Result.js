@@ -14,6 +14,9 @@ class Result extends Component{
         }
         this.renderQuestions = this.renderQuestions.bind(this);
     }
+    static navigationOptions = {
+        title: 'Result',
+      };
     goToCategories(name){
         alert("hey "+name);
         this.props.navigation.navigate('Categories', {name});
@@ -38,7 +41,7 @@ class Result extends Component{
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
       <View>
-        <Text style={styles.heading}>RESULT</Text>
+        <Text style={styles.heading}>Congrats!</Text>
         <Text>{'\n'}</Text>
         <Text style={styles.h2}>{this.state.name}, you scored {this.props.navigation.state.params.score} out of 10</Text>
         <View style={styles.main}>
