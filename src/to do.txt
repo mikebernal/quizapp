@@ -1,8 +1,6 @@
 // To do:
 
-1. Render Player score, question and answers
-2. Provide button to restart game 
-3. Provide button to exit game 
+1. Provide button to exit game 
 
 // Add these features if fits on deadline
 

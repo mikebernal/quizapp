@@ -14,8 +14,9 @@ class Result extends Component{
         }
         this.renderQuestions = this.renderQuestions.bind(this);
     }
-    goToCategories(){
-        this.props.navigation.navigate('Categories');
+    goToCategories(name){
+        alert("hey "+name);
+        this.props.navigation.navigate('Categories', {name});
     }
     goToHome(){
         this.props.navigation.navigate('Home');
@@ -39,12 +40,12 @@ class Result extends Component{
       <View>
         <Text style={styles.heading}>RESULT</Text>
         <Text>{'\n'}</Text>
-        <Text style={styles.h2}>{this.state.name} scored {this.props.navigation.state.params.score} out of 10</Text>
+        <Text style={styles.h2}>{this.state.name}, you scored {this.props.navigation.state.params.score} out of 10</Text>
         <View style={styles.main}>
             {this.renderQuestions(this.props.navigation.state.params.data)}
         </View>
         <Text>{'\n'}</Text>
-        <Button title="Try again" onPress={() => this.goToQuestions() }/>
+        <Button title="Try again" onPress={() => this.goToCategories(this.state.name) }/>
         <Text>{'\n'}</Text>
         <Button title="Change User" onPress={() => this.goToHome() }/>
       </View>
