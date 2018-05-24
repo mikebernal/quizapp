@@ -19,18 +19,19 @@ class Categories extends Component{
   render() {
     return (
       <View>
-        <Text style={{'fontWeight':'bold', 'fontSize':30, 'textAlign':'center'}}>Select category</Text>
-        <Button title="Random" onPress={() => this.goToQuestions(0) }/>
+        <Text>Hello <Text style={{'fontSize':18,'color':'blue','fontFamily':'roboto'}}>{this.state.name} </Text>, </Text>
+        <Text style={{'fontWeight':'bold', 'fontSize':25, 'textAlign':'center'}}>Select category</Text>
+        <Button title="Random" onPress={() => this.goToQuestions(0, this.state.name) }/>
         <Text>{'\n'}</Text>
-        <Button title="Sports" onPress={() => this.goToQuestions(21) }/>
+        <Button title="Sports" onPress={() => this.goToQuestions(21, this.state.name) }/>
         <Text>{'\n'}</Text>
-        <Button title="Science" onPress={() => this.goToQuestions(17) }/>
+        <Button title="Science" onPress={() => this.goToQuestions(17, this.state.name) }/>
         <Text>{'\n'}</Text>
-        <Button title="General Knowledge" onPress={() => this.goToQuestions(9) }/>
+        <Button title="General Knowledge" onPress={() => this.goToQuestions(9, this.state.name) }/>
         <Text>{'\n'}</Text>
-        <Button title="Television" onPress={() => this.goToQuestions(14) }/>
+        <Button title="Television" onPress={() => this.goToQuestions(14, this.state.name) }/>
         <Text>{'\n'}</Text>
-        <Button title="Animals" onPress={() => this.goToQuestions(27) }/>
+        <Button title="Animals" onPress={() => this.goToQuestions(27, this.state.name) }/>
       </View>
     );
   }

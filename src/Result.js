@@ -3,9 +3,10 @@ import { Text, View, Button, ScrollView, StyleSheet } from 'react-native';
 class Result extends Component{
     constructor(props){
         super(props);
-        console.log("THIS IS THE RESULT COMPONENT");
+        this.state = {
+            name : this.props.navigation.state.params.name
+        }
         console.log("You scored "+this.props.navigation.state.params.score+ " out of 10");
-        // console.log(this.props.navigation.state.params.data);
         for (let key in this.props.navigation.state.params.data) {
             if (this.props.navigation.state.params.data.hasOwnProperty(key)) {
                 console.log("Question "+ key +": "+this.props.navigation.state.params.data[key].question+"\nCorrect answer: "+this.props.navigation.state.params.data[key].correct_answer);
@@ -38,7 +39,7 @@ class Result extends Component{
       <View>
         <Text style={styles.heading}>RESULT</Text>
         <Text>{'\n'}</Text>
-        <Text style={styles.h2}>You scored {this.props.navigation.state.params.score} out of 10</Text>
+        <Text style={styles.h2}>{this.state.name} scored {this.props.navigation.state.params.score} out of 10</Text>
         <View style={styles.main}>
             {this.renderQuestions(this.props.navigation.state.params.data)}
         </View>

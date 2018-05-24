@@ -11,7 +11,8 @@ class Questions extends Component{
         showSubmit : 'none',
         score : 0,
         is_correct : '',
-        userInput : []
+        userInput : [],
+        name : this.props.navigation.state.params.name
       }
       this.getApi = this.getApi.bind(this);
       this.getData = this.getData.bind(this);
@@ -73,12 +74,12 @@ class Questions extends Component{
       if(this.state.index === 10 ){
         console.log("FINISH\nChecking if "+this.state.index+" < "+this.state.data.length);
         console.log('Your scored is '+ this.state.score +' out of '+ this.state.data.length);
-        this.goToResult( {data : this.state.data, score : this.state.score} );  
+        this.goToResult( {data : this.state.data, score : this.state.score, name : this.state.name} );  
       }
       this.getData(); 
     }
-    goToResult({data, score}){ 
-      this.props.navigation.navigate('Result', {data , score});
+    goToResult({data, score, name}){ 
+      this.props.navigation.navigate('Result', {data , score, name});
     }
     shuffleArray(a) {
       let j, x, i;
@@ -95,6 +96,7 @@ class Questions extends Component{
       this.state.index === 0 ? (<View style = {[styles.container, styles.horizontal]}><ActivityIndicator  size="large"/></View>) : (
         <ScrollView style={styles.scroll}>
         <View>
+          <Text> Name: { this.state.name }</Text>
           <Text> Question { this.state.index } out of 10</Text>
           <Text> { decodeURI(this.state.question)  }</Text>
             {
@@ -126,7 +128,7 @@ const styles = StyleSheet.create({
   },
   background: {
     paddingVertical: 10,
-    color:'#ffffff'
+    backgroundColor:'#ffffff'
   },
   scroll: {
     paddingVertical: 20,
