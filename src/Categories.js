@@ -3,6 +3,7 @@ import { Text, View, Button } from 'react-native';
 class Categories extends Component{
     constructor(props){
         super(props);
+        // console.log("Name is "+this.props.navigation.props.name);
     }
     goToQuestions(category){
         this.props.navigation.navigate('Questions', {category}); // {category}

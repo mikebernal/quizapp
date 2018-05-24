@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button } from 'react-native';
+import { Text, View, Button, ScrollView, StyleSheet } from 'react-native';
 class Result extends Component{
     constructor(props){
         super(props);
@@ -11,10 +11,7 @@ class Result extends Component{
                 console.log("Question "+ key +": "+this.props.navigation.state.params.data[key].question+"\nCorrect answer: "+this.props.navigation.state.params.data[key].correct_answer);
             }
         }
-        // this.state = {
-        //     data : this.props.navigation.state.params.data,
-        //     score : this.props.navigation.state.params.score
-        // }
+        this.renderQuestions = this.renderQuestions.bind(this);
     }
     goToCategories(){
         this.props.navigation.navigate('Categories');
@@ -22,35 +19,58 @@ class Result extends Component{
     goToHome(){
         this.props.navigation.navigate('Home');
     }
+    renderQuestions(datas){
+        {
+         return (datas.map( (data, i ) => {
+            return ( 
+                <View key={i}>
+                    <Text>Question {i+1}: {data.question}</Text> 
+                    <Text>The correct answer is <Text style={styles.correct}>{data.correct_answer}</Text></Text>
+                    <Text> </Text>
+                </View>
+            );
+            }));
+        }
+    }
   render() {
     return (
-        this.state.data && this.state.data.length ? (
+      <ScrollView contentContainerStyle={styles.contentContainer}>
       <View>
-        <Text>RESULT PAGE</Text>
-        {/* <Text>You scored {this.state.score} out of {this.state.data.length}</Text>
-        {
-            this.state.data.map( (question, i) => {
-              return (
-                <View key={i}>
-                    <Text>{this.state.data[i].question}</Text>
-                    <Text>Your answer {this.state.answer}</Text>
-                    <Text>Correct answer : {this.state.data[i].correct_answer}</Text>
-                    <Text>{'\n'}</Text>
-                </View> 
-              );
-            })
-        } */}
-        <Button title="Review Answer" onPress={() => this.goToReview() }/>
+        <Text style={styles.heading}>RESULT</Text>
         <Text>{'\n'}</Text>
-        <Button title="Try Again" onPress={() => this.goToQuestions() }/>
+        <Text style={styles.h2}>You scored {this.props.navigation.state.params.score} out of 10</Text>
+        <View style={styles.main}>
+            {this.renderQuestions(this.props.navigation.state.params.data)}
+        </View>
+        <Text>{'\n'}</Text>
+        <Button title="Try again" onPress={() => this.goToQuestions() }/>
         <Text>{'\n'}</Text>
         <Button title="Change User" onPress={() => this.goToHome() }/>
       </View>
-
-) : (null)
+    </ScrollView>
     );
   }
-
-
 }
+const styles = StyleSheet.create({
+    contentContainer: {
+      paddingVertical: 20
+    },
+    main: {
+        flex:1,
+        justifyContent: 'space-between',
+    },
+    heading: {
+        fontSize: 20,
+        padding: 5,
+        fontWeight: 'bold',
+        textAlign: 'center',
+    },
+    h2: {
+      fontSize: 15,
+      fontWeight: 'bold',
+    },
+    correct:{
+        color:'blue'
+    }
+  });
 export default Result;

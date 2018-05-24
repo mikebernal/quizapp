@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, ActivityIndicator } from 'react-native';
+import { StyleSheet, Text, View, Button, ActivityIndicator, ScrollView } from 'react-native';
 class Questions extends Component{
     constructor(props){
       super(props);
@@ -30,7 +30,7 @@ class Questions extends Component{
       } else {
         baseUrl = 'https://opentdb.com/api.php?amount=10&category='+category+'&type=multiple&token=';
       }
-      let token = 'fea4144e419c5eefa356ad1a6086a2d7bd549a36b1946a2688027be80edd223a';
+      let token = '71b4df0a055bda14f0b0d7f393a727b60bc056fa1c78cb955c39c97b995b4e58';
       fetch(baseUrl + token)
       .then((response) => response.json())
       .then((responseJSON) => {
@@ -78,8 +78,6 @@ class Questions extends Component{
       this.getData(); 
     }
     goToResult({data, score}){ 
-      console.log("YTass"); 
-      console.log("Data is :  "+data+ "\nScore is :  "+score);
       this.props.navigation.navigate('Result', {data , score});
     }
     shuffleArray(a) {
@@ -95,20 +93,21 @@ class Questions extends Component{
   render() {
     return (
       this.state.index === 0 ? (<View style = {[styles.container, styles.horizontal]}><ActivityIndicator  size="large" color="#0000ff"/></View>) : (
+        <ScrollView style={styles.scroll}>
         <View>
           <Text> Question { this.state.index } out of 10</Text>
-          <Text> { decodeURIComponent(this.state.question) }</Text>
+          <Text> { decodeURI(this.state.question)  }</Text>
             {
               this.state.answers.map( (answer, i ) => {
                return ( 
-                <View key={i}>
-                  <Button title={this.state.answers[i]} onPress={() => this.goToNextQuestion(this.state.answers[i])}/> 
-                <Text>{'\n'}</Text>
+                <View style={styles.background} key={i}>
+                  <Button  raised={true}style={styles.button}title={this.state.answers[i]} onPress={() => this.goToNextQuestion(this.state.answers[i])}/> 
                 </View>
                 );
               })
             }
       </View>
+      </ScrollView>
       )
       
     );
@@ -124,6 +123,17 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     justifyContent: 'space-around',
     padding: 10
+  },
+  background: {
+    backgroundColor: '#ffffff',
+    height: 100,
+    padding: 0,
+  },
+  scroll: {
+    paddingVertical: 20
+  },
+  button: {
+    color: '#ffffff'
   }
 })
 export default Questions;
