@@ -25,7 +25,7 @@ class Questions extends Component{
     getApi(){
       let category = this.props.navigation.state.params.category;
       let baseUrl = '';
-      if(category == 0 ){
+      if(category === 0 ){
         baseUrl = 'https://opentdb.com/api.php?amount=10&type=multiple&token=';
       } else {
         baseUrl = 'https://opentdb.com/api.php?amount=10&category='+category+'&type=multiple&token=';
@@ -92,7 +92,7 @@ class Questions extends Component{
   }
   render() {
     return (
-      this.state.index === 0 ? (<View style = {[styles.container, styles.horizontal]}><ActivityIndicator  size="large" color="#0000ff"/></View>) : (
+      this.state.index === 0 ? (<View style = {[styles.container, styles.horizontal]}><ActivityIndicator  size="large"/></View>) : (
         <ScrollView style={styles.scroll}>
         <View>
           <Text> Question { this.state.index } out of 10</Text>
