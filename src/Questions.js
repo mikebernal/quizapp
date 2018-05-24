@@ -65,7 +65,7 @@ class Questions extends Component{
       console.log("the answer is: "+ answer);
       if(answer === this.state.is_correct){ 
         let newScore = this.state.score + 1;
-        console.log("  You score:  "+newScore +" out of "+this.state.data.length);
+        console.log("You score: "+newScore +" out of "+this.state.data.length);
         this.setState({ score : newScore }); // Update score
       }
       // Check if index = 10
@@ -73,15 +73,14 @@ class Questions extends Component{
       if(this.state.index === 10 ){
         console.log("FINISH\nChecking if "+this.state.index+" < "+this.state.data.length);
         console.log('Your scored is '+ this.state.score +' out of '+ this.state.data.length);
-        this.goToResult( {results : { 
-          data : this.state.data,
-          score : this.state.score
-        }});  
+        this.goToResult( {data : this.state.data, score : this.state.score} );  
       }
       this.getData(); 
     }
-    goToResult({results}){  
-      this.props.navigation.navigate('Result', {results});
+    goToResult({data, score}){ 
+      console.log("YTass"); 
+      console.log("Data is :  "+data+ "\nScore is :  "+score);
+      this.props.navigation.navigate('Result', {data , score});
     }
     shuffleArray(a) {
       let j, x, i;
@@ -96,7 +95,7 @@ class Questions extends Component{
   render() {
     return (
       this.state.index === 0 ? (<View style = {[styles.container, styles.horizontal]}><ActivityIndicator  size="large" color="#0000ff"/></View>) : (
-        <View style = {[styles.container]}>
+        <View>
           <Text> Question { this.state.index } out of 10</Text>
           <Text> { decodeURIComponent(this.state.question) }</Text>
             {
