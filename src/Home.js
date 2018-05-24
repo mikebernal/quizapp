@@ -6,7 +6,7 @@ class Home extends Component{
         this.state = { name: '' };
     }
     goToCategories(name){
-      this.props.navigation.navigate('Categories', name); 
+      this.props.navigation.navigate('Categories', {name}); 
     }
   render() {
     return (

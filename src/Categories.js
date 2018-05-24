@@ -3,7 +3,7 @@ import { Text, View, Button } from 'react-native';
 class Categories extends Component{
     constructor(props){
         super(props);
-        // console.log("Name is "+this.props.navigation.props.name);
+        console.log("Name is "+this.props.navigation.state.params.name);
     }
     goToQuestions(category){
         this.props.navigation.navigate('Questions', {category}); // {category}
@@ -11,14 +11,10 @@ class Categories extends Component{
   render() {
     return (
       <View>
-        <Text>
-         Select a category
-        </Text>
+        <Text style={{'fontWeight':'bold', 'fontSize':30, 'textAlign':'center'}}>Select category</Text>
         <Button title="Random" onPress={() => this.goToQuestions(0) }/>
         <Text>{'\n'}</Text>
         <Button title="Sports" onPress={() => this.goToQuestions(21) }/>
-        <Text>{'\n'}</Text>
-        <Button title="History" onPress={() => this.goToQuestions(23) }/>
         <Text>{'\n'}</Text>
         <Button title="Science" onPress={() => this.goToQuestions(17) }/>
         <Text>{'\n'}</Text>

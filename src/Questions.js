@@ -125,15 +125,15 @@ const styles = StyleSheet.create({
     padding: 10
   },
   background: {
-    backgroundColor: '#ffffff',
-    height: 100,
-    padding: 0,
+    paddingVertical: 10,
+    color:'#ffffff'
   },
   scroll: {
-    paddingVertical: 20
+    paddingVertical: 20,
+    backgroundColor:'#ffffff'
   },
   button: {
-    color: '#ffffff'
+    color: '#000000'
   }
 })
 export default Questions;
