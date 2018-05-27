@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, TextInput,TouchableOpacity } from 'react-native';
+import { StyleSheet, Text, View, Button, TextInput,TouchableOpacity, YellowBox } from 'react-native';
+// Ignoring warnings for for faster development process only. 
+YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 class Home extends Component{
   constructor(props){
       super(props);
