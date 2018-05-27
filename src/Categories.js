@@ -6,18 +6,25 @@ class Categories extends Component{
       this.state = {
         name : this.props.navigation.state.params.name
       }
-      let token = '71b4df0a055bda14f0b0d7f393a727b60bc056fa1c78cb955c39c97b995b4e58';
-      fetch('https://opentdb.com/api_token.php?command=reset&token='+token)
-      .then((response) =>response.json())
-      .then((responseJSON) =>console.log('The token has been reset'))
-      .catch( (error) => console.log("There was an error fetching the api" +error));
-      // Reset token https://opentdb.com/api_token.php?command=reset&token=YOURTOKENHERE
-    }
-    static navigationOptions = {
+     }
+     static navigationOptions = {
       title: 'Categories',
     };
+    componentDidMount(){
+      this.resetToken();
+    }
+    resetToken(){
+      let token = '0807e8c7bb6d297eb58cbd8d86b0c024d39b43969d6755a0949a49b365ac5a35';
+      fetch('https://opentdb.com/api_token.php?command=reset&token='+token)
+      .then((response) => response.json())
+      .then((responseJSON) =>console.log(responseJSON))
+      .catch( (error) => {
+        console.log("There was an error reseting the api " +error);
+        throw error;
+      });
+    }
     goToQuestions(category, name){
-        this.props.navigation.navigate('Questions', {category, name}); // {category}
+      this.props.navigation.navigate('Questions', {category, name});
     }
   render() {
     return (

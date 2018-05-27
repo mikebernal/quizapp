@@ -11,24 +11,23 @@ import Questions from './src/Questions';
 import Result from './src/Result';
 import Review from './src/Review';
 
-
 const MainNavigation = createStackNavigator({
   Home : { screen : Home },
   Categories : { screen: Categories},
   Questions : { screen: Questions},
   Result : { screen: Result},
   Review : { screen: Review}
-}, {
+},{
   initialRouteName : 'Home',
-  navigationOptions: {
-    headerStyle: {
-      backgroundColor: '#000000',
-    },
-    headerTintColor: '#fff',
-    headerTitleStyle: {
-      fontWeight: 'bold',
-    },
-  },
+  // navigationOptions: {
+  //   headerStyle: {
+  //     backgroundColor: '#000000',
+  //   },
+  //   headerTintColor: '#fff',
+  //   headerTitleStyle: {
+  //     fontWeight: '200',
+  //   }
+  // }
 });
 
 class App extends Component{

@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, Button, TextInput } from 'react-native';
-// import FontAwesome, { Icons } from 'react-native-fontawesome';
+import { StyleSheet, Text, View, Button, TextInput,TouchableOpacity } from 'react-native';
 class Home extends Component{
   constructor(props){
       super(props);
@@ -14,16 +13,44 @@ class Home extends Component{
   }
   render() {
     return (
-      <View style={{'flex':1,'justifyContent': 'center', 'alignItems': 'center'}}>
-        <Text style={{'textAlign':'center', 'fontSize':30,'fontWeight':'bold'}}>Enter Name</Text>
+      <View style={{'flex':1,'justifyContent': 'center', 'alignItems': 'center','backgroundColor':'#fff'}}>
+        <Text style={{'textAlign':'center', 'fontSize':30,'fontWeight':'bold','color': '#000'}}>Enter Name</Text>
         <TextInput
-        style={{height: 40, borderColor: 'gray', borderWidth: 1, width:'80%','borderRadius': 10,'backgroundColor': '#FFFFEF','margin':20}}
+        style={{height: 40, borderColor: 'gray', borderWidth: 1, width:'80%','backgroundColor': '#FFF','margin':20,'color':'#000', 'fontSize': 20}}
         onChangeText={(name) => this.setState({name})}
         value={this.state.name}
       />
-        <Button color="#ff00f" title="Take the quiz" onPress={() => this.goToCategories(this.state.name) }/>
-      </View>
+        <TouchableOpacity style={styles.button} onPress={() => this.goToCategories(this.state.name)}>
+         <Text style={styles.buttonText}> Start Quiz </Text>
+       </TouchableOpacity>
+      </View> 
     );
   }
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    paddingHorizontal: 10
+  },
+  button: {
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    padding: 10,
+
+  },
+  countContainer: {
+    alignItems: 'center',
+    padding: 10
+  },
+  countText: {
+    color: '#FF00FF'
+  },
+  buttonText: {
+    color:"#000",
+    fontWeight: "100",
+    borderColor : 'black'
+  }
+})
+
 export default Home; 

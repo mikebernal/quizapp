@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { StyleSheet, Text, View, Button, ActivityIndicator, ScrollView } from 'react-native';
+import { StyleSheet, Text, View, Button, ActivityIndicator, ScrollView,TouchableOpacity } from 'react-native';
 class Questions extends Component{
     constructor(props){
       super(props);
@@ -24,6 +24,7 @@ class Questions extends Component{
       title: 'Question',
     };
     componentDidMount(){
+      console.log("Questions Component\nThe category is:  "+this.props.navigation.state.params.category);
       this.getApi();
     }
     getApi(){
@@ -34,7 +35,7 @@ class Questions extends Component{
       } else {
         baseUrl = 'https://opentdb.com/api.php?amount=10&category='+category+'&type=multiple&token=';
       }
-      let token = '71b4df0a055bda14f0b0d7f393a727b60bc056fa1c78cb955c39c97b995b4e58';
+      let token = '0807e8c7bb6d297eb58cbd8d86b0c024d39b43969d6755a0949a49b365ac5a35';
       fetch(baseUrl + token)
       .then((response) => response.json())
       .then((responseJSON) => {
@@ -43,7 +44,10 @@ class Questions extends Component{
         });
         this.getData(); 
       })
-      .catch((error) => console.log('an error occured. ' + error)); 
+      .catch( (error) => {
+        console.log("There was an error fetching the api in the Questions Component\n" +error);
+        throw error;
+      });
     }
     getData(){
       let data = this.state.data;
@@ -106,7 +110,9 @@ class Questions extends Component{
               this.state.answers.map( (answer, i ) => {
                return ( 
                 <View style={styles.background} key={i}>
-                  <Button  raised={true}style={styles.button}title={this.state.answers[i]} onPress={() => this.goToNextQuestion(this.state.answers[i])}/> 
+                  <TouchableOpacity  raised={true}style={styles.button} onPress={() => this.goToNextQuestion(this.state.answers[i])}> 
+                    <Text style={styles.buttonText}> {this.state.answers[i]}  </Text>
+                  </TouchableOpacity>
                 </View>
                 );
               })
@@ -138,7 +144,14 @@ const styles = StyleSheet.create({
     backgroundColor:'#ffffff'
   },
   button: {
-    color: '#000000'
+    alignItems: 'center',
+    backgroundColor: '#FFF',
+    padding: 10,
+    borderColor :'#000' 
+  },
+  buttonText: {
+    color:"#000",
+    fontWeight: "100",
   }
 })
 export default Questions;

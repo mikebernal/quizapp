@@ -4,7 +4,8 @@ class Result extends Component{
     constructor(props){
         super(props);
         this.state = {
-            name : this.props.navigation.state.params.name
+            name : this.props.navigation.state.params.name,
+            score : this.props.navigation.state.params.score
         }
         console.log("You scored "+this.props.navigation.state.params.score+ " out of 10");
         for (let key in this.props.navigation.state.params.data) {
@@ -16,9 +17,8 @@ class Result extends Component{
     }
     static navigationOptions = {
         title: 'Result',
-      };
+    };
     goToCategories(name){
-        alert("hey "+name);
         this.props.navigation.navigate('Categories', {name});
     }
     goToHome(){
@@ -43,7 +43,7 @@ class Result extends Component{
       <View>
         <Text style={styles.heading}>Congrats!</Text>
         <Text>{'\n'}</Text>
-        <Text style={styles.h2}>{this.state.name}, you scored {this.props.navigation.state.params.score} out of 10</Text>
+        <Text style={styles.h2}>{this.state.name}, you scored {this.state.score} out of 10</Text>
         <View style={styles.main}>
             {this.renderQuestions(this.props.navigation.state.params.data)}
         </View>
