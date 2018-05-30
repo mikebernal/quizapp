@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { StyleSheet, Text, View, Button, TextInput,TouchableOpacity, YellowBox } from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
 // Ignoring warnings for for faster development process only. 
 YellowBox.ignoreWarnings(['Warning: isMounted(...) is deprecated', 'Module RCTImageLoader']);
 class Home extends Component{
@@ -22,6 +23,7 @@ class Home extends Component{
         onChangeText={(name) => this.setState({name})}
         value={this.state.name}
       />
+      <Icon name="home" size={15} color="#000"/>
         <TouchableOpacity style={styles.button} onPress={() => this.goToCategories(this.state.name)}>
          <Text style={styles.buttonText}> Start Quiz </Text>
        </TouchableOpacity>

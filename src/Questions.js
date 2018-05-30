@@ -8,7 +8,6 @@ class Questions extends Component{
         data : [],
         question : '',
         answers : [],
-        showSubmit : 'none',
         score : 0,
         is_correct : '',
         userInput : [],
@@ -35,7 +34,8 @@ class Questions extends Component{
       } else {
         baseUrl = 'https://opentdb.com/api.php?amount=10&category='+category+'&type=multiple&token=';
       }
-      let token = '0807e8c7bb6d297eb58cbd8d86b0c024d39b43969d6755a0949a49b365ac5a35';
+      let token = 'e693ced76d81142f46b5445ec30d24f0686761236e2bd5fbdc076c7b0301436d';
+      console.log(baseUrl+token);
       fetch(baseUrl + token)
       .then((response) => response.json())
       .then((responseJSON) => {
@@ -52,6 +52,8 @@ class Questions extends Component{
     getData(){
       let data = this.state.data;
       let index = this.state.index;
+      console.log('Variable index is: '+index);
+      console.log("the state index is: "+this.state.index);
       let is_correct = data[index].correct_answer;
       let answers = [
         data[index].correct_answer,

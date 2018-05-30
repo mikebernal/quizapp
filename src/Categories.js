@@ -14,7 +14,7 @@ class Categories extends Component{
       this.resetToken();
     }
     resetToken(){
-      let token = '0807e8c7bb6d297eb58cbd8d86b0c024d39b43969d6755a0949a49b365ac5a35';
+      let token = 'e693ced76d81142f46b5445ec30d24f0686761236e2bd5fbdc076c7b0301436d';
       fetch('https://opentdb.com/api_token.php?command=reset&token='+token)
       .then((response) => response.json())
       .then((responseJSON) =>console.log(responseJSON))
