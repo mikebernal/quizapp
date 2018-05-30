@@ -1,10 +1,20 @@
 // To do:
+1. Fix score variable.
+2. Add a request and reset token in the getApi() function.
 
-1. Provide button to exit game 
+Additional features: 
 
-// Add these features if fits on deadline
+1. Add Header {Home, Categories, Questions, Results}
+2. Add Tab Navigation {Home, Settings} 
+3. Add CSS to Questions and Answer, buttons
+4. Add a share features on social media 
 
-1. Add CSS
-2. Decode special character for output
-3. Add color code example : blue for correct and red for wrong
-4. Add a share on facebook on Results Component
+List known bug here:
+1. score is not rendering the latest value
+2. red screen on last Questions
+3. token destoryed within 6 hours of inactive request of api
+
+
+Unit Testing
+System Testing
+Add opentrivia.com into resume 
