@@ -1,12 +1,14 @@
-Additional features: 
+// To do
+
+1. Program the Results component back button to Categories component
+
+
+// Additional features: 
 
 1. Add Header {Home, Categories, Questions, Results}
 2. Add Tab Navigation {Home, Settings} 
 3. Add CSS to Questions and Answer, buttons
 4. Add a share features on social media 
-
-List known bug:
-1. red screen on last Questions
 
 Unit Testing
 Add opentrivia.com into resume 

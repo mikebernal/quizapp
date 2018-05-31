@@ -74,23 +74,21 @@ class Questions extends Component{
       if(answer === this.state.is_correct){ 
         newScore = this.state.score + 1;
         console.log("You score: "+newScore +" out of "+this.state.data.length);
-        this.setState({ score : newScore }); // Update score
+        this.setState({ score : newScore });
       }
-      // Check if index = 10
       console.log("this.state.index = " + this.state.index + "\nthis.state.data.length = "+this.state.data.length);
       if(this.state.index === 10 ){
         console.log("FINISH\nChecking if "+this.state.index+" < "+this.state.data.length);
         console.log('Question component:>> Your scored is '+ newScore +' out of '+ this.state.data.length);
         this.goToResult( {data : this.state.data, score : newScore, name : this.state.name} );  
       }
-      // if(this.state.index === 10 ){  put this back!!
-      //   console.log("FINISH\nChecking if "+this.state.index+" < "+this.state.data.length);
-      //   console.log('Question component: Your scored is '+ this.state.score +' out of '+ this.state.data.length);
-      //   this.goToResult( {data : this.state.data, score : this.state.score, name : this.state.name} );  
-      // }
-      this.getData(); 
+      console.log("this.getData has been called at "+Date.now());
+      if(this.state.index <= 9){
+        this.getData(); 
+      }
     }
     goToResult({data, score, name}){ 
+      console.log('goToResults has been called at '+Date.now());
       this.props.navigation.navigate('Result', {data , score, name});
     }
     shuffleArray(a) {
