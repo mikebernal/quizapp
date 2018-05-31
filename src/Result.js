@@ -7,7 +7,7 @@ class Result extends Component{
             name : this.props.navigation.state.params.name,
             score : this.props.navigation.state.params.score
         }
-        console.log("You scored "+this.props.navigation.state.params.score+ " out of 10");
+        console.log("Results component: You scored "+this.props.navigation.state.params.score+ " out of 10");
         for (let key in this.props.navigation.state.params.data) {
             if (this.props.navigation.state.params.data.hasOwnProperty(key)) {
                 console.log("Question "+ key +": "+this.props.navigation.state.params.data[key].question+"\nCorrect answer: "+this.props.navigation.state.params.data[key].correct_answer);

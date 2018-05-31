@@ -23,19 +23,17 @@ class Questions extends Component{
       title: 'Question',
     };
     componentDidMount(){
-      console.log("Questions Component\nThe category is:  "+this.props.navigation.state.params.category);
       this.getApi();
     }
     getApi(){
       let category = this.props.navigation.state.params.category;
       let baseUrl = '';
+      let token = this.props.navigation.state.params.token;
       if(category === 0 ){
         baseUrl = 'https://opentdb.com/api.php?amount=10&type=multiple&token=';
       } else {
         baseUrl = 'https://opentdb.com/api.php?amount=10&category='+category+'&type=multiple&token=';
       }
-      let token = 'e693ced76d81142f46b5445ec30d24f0686761236e2bd5fbdc076c7b0301436d';
-      console.log(baseUrl+token);
       fetch(baseUrl + token)
       .then((response) => response.json())
       .then((responseJSON) => {
@@ -74,7 +72,7 @@ class Questions extends Component{
     goToNextQuestion(answer) {
       console.log("the answer is: "+ answer);
       if(answer === this.state.is_correct){ 
-        let newScore = this.state.score + 1;
+        newScore = this.state.score + 1;
         console.log("You score: "+newScore +" out of "+this.state.data.length);
         this.setState({ score : newScore }); // Update score
       }
@@ -82,9 +80,14 @@ class Questions extends Component{
       console.log("this.state.index = " + this.state.index + "\nthis.state.data.length = "+this.state.data.length);
       if(this.state.index === 10 ){
         console.log("FINISH\nChecking if "+this.state.index+" < "+this.state.data.length);
-        console.log('Your scored is '+ this.state.score +' out of '+ this.state.data.length);
-        this.goToResult( {data : this.state.data, score : this.state.score, name : this.state.name} );  
+        console.log('Question component:>> Your scored is '+ newScore +' out of '+ this.state.data.length);
+        this.goToResult( {data : this.state.data, score : newScore, name : this.state.name} );  
       }
+      // if(this.state.index === 10 ){  put this back!!
+      //   console.log("FINISH\nChecking if "+this.state.index+" < "+this.state.data.length);
+      //   console.log('Question component: Your scored is '+ this.state.score +' out of '+ this.state.data.length);
+      //   this.goToResult( {data : this.state.data, score : this.state.score, name : this.state.name} );  
+      // }
       this.getData(); 
     }
     goToResult({data, score, name}){ 

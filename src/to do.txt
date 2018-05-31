@@ -1,7 +1,3 @@
-// To do:
-1. Fix score variable.
-2. Add a request and reset token in the getApi() function.
-
 Additional features: 
 
 1. Add Header {Home, Categories, Questions, Results}
@@ -9,12 +5,8 @@ Additional features:
 3. Add CSS to Questions and Answer, buttons
 4. Add a share features on social media 
 
-List known bug here:
-1. score is not rendering the latest value
-2. red screen on last Questions
-3. token destoryed within 6 hours of inactive request of api
-
+List known bug:
+1. red screen on last Questions
 
 Unit Testing
-System Testing
 Add opentrivia.com into resume 
